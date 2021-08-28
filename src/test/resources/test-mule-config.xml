@@ -1,0 +1,19 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:people-management="http://www.mulesoft.org/schema/mule/people-management"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/people-management http://www.mulesoft.org/schema/mule/people-management/current/mule-people-management.xsd">
+
+    <people-management:config name="config" configId="configId">
+        <people-management:connection requiredParameter="aValue" />
+    </people-management:config>
+
+    <flow name="sayHiFlow">
+        <people-management:say-hi person="Mariano Gonzalez"/>
+    </flow>
+
+    <flow name="retrieveInfoFlow">
+        <people-management:retrieve-info config-ref="config"/>
+    </flow>
+
+</mule>
